@@ -34,9 +34,6 @@ val dokkaJar by tasks.creating(Jar::class) {
     from(tasks.dokka)
 }
 
-val usernameNexusRedBee: String by project
-val passwordNexusRedBee: String by project
-
 publishing {
     publications {
         create<MavenPublication>("default") {
@@ -46,11 +43,7 @@ publishing {
     }
     repositories {
         maven {
-            url = uri("http://nexus.redb.ee/content/repositories/redbee-snapshot/")
-            credentials {
-                username = usernameNexusRedBee
-                password = passwordNexusRedBee
-            }
+            url = uri("$buildDir/repository")
         }
     }
 }
