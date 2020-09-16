@@ -28,6 +28,15 @@ jobs:
           server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
           settings-path: ${{ github.workspace }} # location for the settings.xml file
 
+      - name: Load gradle.properties
+        env:
+          GRADLE_PROPERTIES: ${{ secrets.GRADLE_PROPERTIES }}
+        shell: bash
+        run: |
+          mkdir -p ~/.gradle/
+          echo "::set-env name=GRADLE_USER_HOME::$HOME/.gradle"
+          echo ${GRADLE_PROPERTIES} > ~/.gradle/gradle.properties
+
       # Runs a single command using the runners shell
       - name: Build
         run: gradle build
