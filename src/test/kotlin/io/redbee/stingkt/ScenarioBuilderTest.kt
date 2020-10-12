@@ -2,57 +2,45 @@
 
 package io.redbee.stingkt
 
+import io.redbee.stingkt.target.Calculator
 import org.junit.jupiter.api.TestFactory
 
 internal class ScenarioBuilderTest {
 
-    class MultiplyByTowScope : Scope() {
+    private val calculator = Calculator()
+
+    class AValueIsAddedTwice : Scope() {
         var number = 0
         var double = 0
     }
 
     @TestFactory
-    internal fun `create a scenario`() =
-        Scenario<MultiplyByTowScope> {
-
-            Given {
-
-                case("2 * 2 is 4") {
-                    number = 2
-                    double = 4
-                }
-
-                case {
-                    number = 4
-                    double = 8
-                }
+    fun `create a scenario`() = Scenario<AValueIsAddedTwice> {
+        Given {
+            case("2 + 2 is 4") {
+                number = 2
+                double = 4
             }
-
-            When { number * 2 }
-
-            Then {
-                assert { actual equals double }
+            case {
+                number = 4
+                double = 8
             }
-
         }
+        When { calculator.addPositives(number, number) }
+        Then { actual equals double }
+    }
 
+    @TestFactory
+    fun `validate target throws`() = Scenario<AValueIsAddedTwice> {
+        Given { case { number = -1; double = -2 } }
+        When { calculator.addPositives(number, number) }
+        Throws<IllegalArgumentException> { it.message equals "-1 should be positive" }
+    }
 
-//            Scenario(`multiply by 2`)
-//            {
-//                Given {
-//                    numberA = 2
-//                    numberB = 4
-//                }
-//                When { numberA * numberB }
-//                Then { actual equals 8 }
-//            }
+    @TestFactory
+    fun `validate custom throws`() = Scenario("trows") {
+        When { error("Invalid") }
+        Then { thrown<IllegalStateException> { it.message equals "Invalid" } }
+    }
+
 }
-
-//    @Test
-//    internal fun `throws exception`() {
-//        Scenario {
-//            When { error("Invalid") }
-//            Throws<IllegalStateException> { it.message equals "Invalid" }
-//        }
-//    }
-//}

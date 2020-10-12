@@ -1,5 +1,8 @@
+@file:Suppress("FunctionName")
+
 package io.redbee.stingkt
 
+import org.junit.jupiter.api.Assertions.assertThrows
 import org.junit.jupiter.api.DynamicTest.dynamicTest
 
 abstract class Scope(
@@ -7,22 +10,46 @@ abstract class Scope(
     var exception: Throwable? = null
 )
 
+class SimpleScope : Scope()
+
+inline fun Scenario(case: String, block: ScenarioBuilder<SimpleScope>.() -> Unit) =
+    Scenario<SimpleScope> {
+        Given { case(case) }
+        block.invoke(this)
+    }
+
 inline fun <T : Scope> Scenario(block: ScenarioBuilder<T>.() -> Unit) =
-    ScenarioBuilder<T>().apply(block).build()
+    ScenarioBuilder<T>()
+        .apply(block)
+        .build()
 
 class ScenarioBuilder<T : Scope> {
 
     val cases: MutableList<TestCase<T>> = mutableListOf()
-    var whenBlock: (T.() -> Any)? = null
-    val asserts: MutableList<T.() -> Unit> = mutableListOf()
+    private var whenBlock: (T.() -> Any)? = null
+    private var thenBlock: (T.() -> Unit)? = null
+    var throwsBlock: ((T) -> Unit)? = null
 
-    inline fun Given(block: CaseBuilder<T>.() -> Unit) = cases.addAll(CaseBuilder<T>().apply(block).cases)
+    inline fun Given(block: CaseBuilder<T>.() -> Unit): ScenarioBuilder<T> {
+        cases.addAll(CaseBuilder<T>().apply(block).cases)
+        return this
+    }
 
-    fun  When(block: T.() -> Any) {
+    fun When(block: T.() -> Any) {
         whenBlock = block
     }
 
-    fun Then(block: AssertBuilder<T>.() -> Unit) = asserts.addAll(AssertBuilder<T>().apply(block).asserts)
+    fun Then(block: T.() -> Unit) {
+        thenBlock = block
+    }
+
+    inline fun <reified E : Throwable> Throws(crossinline block: (Throwable) -> Unit) {
+        throwsBlock = { case ->
+            block(assertThrows(E::class.java) {
+                case.exception?.let { throw it }
+            })
+        }
+    }
 
     fun build() = cases.map { case ->
         dynamicTest(case.name) {
@@ -31,9 +58,8 @@ class ScenarioBuilder<T : Scope> {
                 .onSuccess { case.scope.actual = it }
                 .onFailure { case.scope.exception = it }
 
-            // TODO handle throws here
-
-            asserts.map { assert -> assert(case.scope) }
+            thenBlock?.let { case.scope.run(it) }
+            throwsBlock?.let { case.scope.run(it) }
         }
     }
 }
@@ -49,7 +75,7 @@ class CaseBuilder<T : Scope> {
 
 }
 
-inline fun <reified T : Scope> CaseBuilder<T>.case(name: String = "", block: T.() -> Unit) {
+inline fun <reified T : Scope> CaseBuilder<T>.case(name: String = "", block: T.() -> Unit = {}) {
     val caseName = name.takeUnless { it.isEmpty() } ?: "Case ${cases.size + 1}"
     val caseScope = T::class.java.getDeclaredConstructor().newInstance()
     val case = TestCase<T>(caseName, caseScope)
@@ -57,17 +83,6 @@ inline fun <reified T : Scope> CaseBuilder<T>.case(name: String = "", block: T.(
     cases.add(case)
 }
 
-
-class AssertBuilder<T : Scope> {
-    val asserts: MutableList<T.() -> Unit> = mutableListOf()
-
-    fun assert(block: T.() -> Unit) {
-        asserts.add(block)
-    }
-
-    // TODO add throws to handle exceptions
-//    inline fun <reified E : Throwable> throws(block: (Throwable) -> Unit = {}) {
-//        block(assertThrows(E::class.java) { mScope.exception?.let { throw it } })
-//    }
-
+inline fun <reified E : Throwable> Scope.thrown(block: (Throwable) -> Unit = {}) {
+    block(assertThrows(E::class.java) { this.exception?.let { throw it } })
 }
