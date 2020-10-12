@@ -3,7 +3,7 @@ name: docs
 on:
   release:
     branches: [ master ]
-    types: [ published, created, edited ]
+    types: [ published ]
 
 jobs:
   upload:
@@ -19,12 +19,12 @@ jobs:
           settings-path: ${{ github.workspace }} # location for the settings.xml file
 
       - name: Docs
-        run: gradle dokkaHtml
+        run: gradle dokkaJekyll
 
       - name: Upload 🚀
         uses: JamesIves/github-pages-deploy-action@3.6.2
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: docs
-          FOLDER: build/dokka/html
+          FOLDER: build/dokka/jekyll
           CLEAN: true
