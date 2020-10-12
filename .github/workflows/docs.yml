@@ -26,5 +26,5 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: docs
-          FOLDER: build/dokka/jekyll
+          FOLDER: build/dokka/jekyll/sting-kt/io.redbee.stingkt
           CLEAN: true
