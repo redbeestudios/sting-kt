@@ -43,9 +43,9 @@ class ScenarioBuilder<T : Scope> {
         thenBlock = block
     }
 
-    inline fun <reified E : Throwable> Throws(crossinline block: (Throwable) -> Unit) {
+    inline fun <reified E : Throwable> Throws(crossinline block: T.(E) -> Unit) {
         throwsBlock = { case ->
-            block(assertThrows(E::class.java) {
+            block(case, assertThrows(E::class.java) {
                 case.exception?.let { throw it }
             })
         }
@@ -83,6 +83,6 @@ inline fun <reified T : Scope> CaseBuilder<T>.case(name: String = "", block: T.(
     cases.add(case)
 }
 
-inline fun <reified E : Throwable> Scope.thrown(block: (Throwable) -> Unit = {}) {
-    block(assertThrows(E::class.java) { this.exception?.let { throw it } })
+inline fun <reified E : Throwable> Scope.thrown(block: Scope.(E) -> Unit = {}) {
+    block(this, assertThrows(E::class.java) { this.exception?.let { throw it } })
 }

@@ -34,7 +34,7 @@ internal class ScenarioBuilderTest {
     fun `validate target throws`() = Scenario<AValueIsAddedTwice> {
         Given { case { number = -1; double = -2 } }
         When { calculator.addPositives(number, number) }
-        Throws<IllegalArgumentException> { it.message equals "-1 should be positive" }
+        Throws<IllegalArgumentException> { it.message equals "$number should be positive" }
     }
 
     @TestFactory
