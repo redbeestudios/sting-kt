@@ -8,7 +8,7 @@ title: Throws -
 # Throws  
 [jvm]  
 Content  
-inline fun <[E](-throws.md) : [Throwable](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/index.html)> [Throws](-throws.md)(crossinline block: ([Throwable](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/index.html)) -> [Unit](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html))  
+inline fun <[E](-throws.md) : [Throwable](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/index.html)> [Throws](-throws.md)(crossinline block: [T](index.md).([E](-throws.md)) -> [Unit](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)): [ScenarioBuilder](index.md)<[T](index.md)>  
 
 
 

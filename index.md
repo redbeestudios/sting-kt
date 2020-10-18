@@ -12,6 +12,7 @@ title: io.redbee.stingkt -
   
 |  Name|  Summary| 
 |---|---|
+| [BlockResult](-block-result/index.md)| [jvm]  <br>Content  <br>sealed class [BlockResult](-block-result/index.md)  <br><br><br>
 | [CaseBuilder](-case-builder/index.md)| [jvm]  <br>Content  <br>class [CaseBuilder](-case-builder/index.md)<[T](-case-builder/index.md) : [Scope](-scope/index.md)>  <br><br><br>
 | [ScenarioBuilder](-scenario-builder/index.md)| [jvm]  <br>Content  <br>class [ScenarioBuilder](-scenario-builder/index.md)<[T](-scenario-builder/index.md) : [Scope](-scope/index.md)>  <br><br><br>
 | [Scope](-scope/index.md)| [jvm]  <br>Content  <br>abstract class [Scope](-scope/index.md)(**actual**: [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)?, **exception**: [Throwable](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/index.html)?)  <br><br><br>
@@ -31,6 +32,5 @@ title: io.redbee.stingkt -
 | [GIVEN](-g-i-v-e-n.md)| [jvm]  <br>Content  <br>fun <[T](-g-i-v-e-n.md)> [GIVEN](-g-i-v-e-n.md)(block: () -> [T](-g-i-v-e-n.md)): [T](-g-i-v-e-n.md)  <br><br><br>
 | [Scenario](-scenario.md)| [jvm]  <br>Content  <br>inline fun <[T](-scenario.md) : [Scope](-scope/index.md)> [Scenario](-scenario.md)(block: [ScenarioBuilder](-scenario-builder/index.md)<[T](-scenario.md)>.() -> [Unit](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)): [List](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html)<DynamicTest>  <br>inline fun [Scenario](-scenario.md)(case: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html), block: [ScenarioBuilder](-scenario-builder/index.md)<[SimpleScope](-simple-scope/index.md)>.() -> [Unit](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)): [List](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html)<DynamicTest>  <br><br><br>
 | [THEN](-t-h-e-n.md)| [jvm]  <br>Content  <br>fun <[T](-t-h-e-n.md)> [THEN](-t-h-e-n.md)(block: () -> [T](-t-h-e-n.md)): [T](-t-h-e-n.md)  <br><br><br>
-| [thrown](thrown.md)| [jvm]  <br>Content  <br>inline fun <[E](thrown.md) : [Throwable](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/index.html)> [Scope](-scope/index.md).[thrown](thrown.md)(block: ([Throwable](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/index.html)) -> [Unit](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html))  <br><br><br>
 | [WHEN](-w-h-e-n.md)| [jvm]  <br>Content  <br>fun <[T](-w-h-e-n.md)> [WHEN](-w-h-e-n.md)(block: () -> [T](-w-h-e-n.md)): [T](-w-h-e-n.md)  <br><br><br>
 

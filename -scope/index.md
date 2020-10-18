@@ -32,10 +32,3 @@ title: Scope -
 |---|
 | [SimpleScope](../-simple-scope/index.md)
 
-
-## Extensions  
-  
-|  Name|  Summary| 
-|---|---|
-| [thrown](../thrown.md)| [jvm]  <br>Content  <br>inline fun <[E](../thrown.md) : [Throwable](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/index.html)> [Scope](index.md).[thrown](../thrown.md)(block: ([Throwable](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/index.html)) -> [Unit](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html))  <br><br><br>
-

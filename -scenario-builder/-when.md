@@ -8,7 +8,7 @@ title: When -
 # When  
 [jvm]  
 Content  
-fun [When](-when.md)(block: [T](index.md).() -> [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html))  
+fun [When](-when.md)(block: [T](index.md).() -> [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)): [ScenarioBuilder](index.md)<[T](index.md)>  
 
 
 

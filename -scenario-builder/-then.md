@@ -8,7 +8,7 @@ title: Then -
 # Then  
 [jvm]  
 Content  
-fun [Then](-then.md)(block: [T](index.md).() -> [Unit](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html))  
+fun [Then](-then.md)(block: [T](index.md).() -> [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)): [ScenarioBuilder](index.md)<[T](index.md)>  
 
 
 
