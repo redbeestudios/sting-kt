@@ -1,6 +1,22 @@
-
 # sting.kt 
 A collection of Kotlin APIs for making JUint more verbose and documentation friedly.
+
+[ ![Download](https://api.bintray.com/packages/redbee/kotlin/sting-kt/images/download.svg) ](https://bintray.com/redbee/kotlin/sting-kt/_latestVersion)
+
+## Install
+```kotlin
+repositories {
+    maven {
+        url  "https://dl.bintray.com/redbee/kotlin" 
+    }
+}
+```
+
+```kotlin
+dependencies {
+    implementation("io.redbee:sting-kt:0.2.0")
+}
+```
 
 ## Examples
 
