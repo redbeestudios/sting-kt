@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "io.redbee"
-version = "0.2.0"
+version = "0.3.0"
 
 repositories {
     jcenter()
@@ -17,6 +17,7 @@ dependencies {
 
     implementation("org.junit.jupiter:junit-jupiter-api:5.3.1")
     implementation("org.junit.jupiter:junit-jupiter-engine:5.3.1")
+    implementation("io.mockk:mockk:1.10.2")
 }
 
 tasks.test {
