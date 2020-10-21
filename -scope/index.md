@@ -6,7 +6,7 @@ title: Scope -
 
 
 # Scope  
- [jvm] abstract class [Scope](index.md)(**actual**: [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)?, **exception**: [Throwable](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/index.html)?)   
+ [jvm] abstract class [Scope](index.md)(**actual**: [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)?, **expected**: [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)?, **exception**: [Throwable](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/index.html)?)   
 
 
 ## Functions  
@@ -24,6 +24,7 @@ title: Scope -
 |---|---|
 | [actual](index.md#io.redbee.stingkt/Scope/actual/#/PointingToDeclaration/)|  [jvm] var [actual](index.md#io.redbee.stingkt/Scope/actual/#/PointingToDeclaration/): [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)?   <br>
 | [exception](index.md#io.redbee.stingkt/Scope/exception/#/PointingToDeclaration/)|  [jvm] var [exception](index.md#io.redbee.stingkt/Scope/exception/#/PointingToDeclaration/): [Throwable](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/index.html)?   <br>
+| [expected](index.md#io.redbee.stingkt/Scope/expected/#/PointingToDeclaration/)|  [jvm] var [expected](index.md#io.redbee.stingkt/Scope/expected/#/PointingToDeclaration/): [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)?   <br>
 
 
 ## Inheritors  

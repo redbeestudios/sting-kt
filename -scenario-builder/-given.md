@@ -8,7 +8,8 @@ title: Given -
 # Given  
 [jvm]  
 Content  
-inline fun [Given](-given.md)(block: [CaseBuilder](../-case-builder/index.md)<[T](index.md)>.() -> [Unit](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)): [ScenarioBuilder](index.md)<[T](index.md)>  
+fun [Given](-given.md)(block: [T](index.md).() -> [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)): [ScenarioBuilder](index.md)<[T](index.md)>  
+fun [Given](-given.md)(cases: [CaseBuilder](../-case-builder/index.md)<[T](index.md)>.() -> [Unit](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html), block: [T](index.md).() -> [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)): [ScenarioBuilder](index.md)<[T](index.md)>  
 
 
 

@@ -24,4 +24,5 @@ title: SimpleScope -
 |---|---|
 | [actual](index.md#io.redbee.stingkt/SimpleScope/actual/#/PointingToDeclaration/)|  [jvm] override var [actual](index.md#io.redbee.stingkt/SimpleScope/actual/#/PointingToDeclaration/): [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)?   <br>
 | [exception](index.md#io.redbee.stingkt/SimpleScope/exception/#/PointingToDeclaration/)|  [jvm] override var [exception](index.md#io.redbee.stingkt/SimpleScope/exception/#/PointingToDeclaration/): [Throwable](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/index.html)?   <br>
+| [expected](index.md#io.redbee.stingkt/SimpleScope/expected/#/PointingToDeclaration/)|  [jvm] override var [expected](index.md#io.redbee.stingkt/SimpleScope/expected/#/PointingToDeclaration/): [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)?   <br>
 

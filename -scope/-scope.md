@@ -8,7 +8,7 @@ title: Scope -
 # Scope  
 [jvm]  
 Content  
-fun [Scope](-scope.md)(actual: [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)?, exception: [Throwable](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/index.html)?)  
+fun [Scope](-scope.md)(actual: [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)?, expected: [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)?, exception: [Throwable](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/index.html)?)  
 
 
 
